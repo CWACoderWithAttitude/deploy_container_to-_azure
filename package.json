@@ -1,0 +1,9 @@
+{
+  "name": "meine-app",
+  "version": "1.0.0",
+  "description": "Meine erste Azure Container App",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  }
+}
