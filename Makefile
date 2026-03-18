@@ -13,14 +13,14 @@ login:
 acr:
 	az group create --name meine-app-gruppe --location germanywestcentral
 
-registry:
+registry: acr
 	az acr create \
   	  --resource-group meine-app-gruppe \
 	  --name meineappregistry \
 	  --sku Basic \
 	  --admin-enabled true
 
-acr_login:
+acr_login: registry
 	az acr login --name meineappregistry
 # Image taggen & pushen
 tag: build
@@ -29,7 +29,7 @@ tag: build
 push: tag
 	docker push meineappregistry.azurecr.io/meine-app:v1
 
-create_env:
+create_env: registry
 	az containerapp env create \
 	  --name meine-app-env \
 	  --resource-group meine-app-gruppe \
@@ -40,7 +40,7 @@ create_env:
 #  		--query "passwords[0].value" -o tsv)
 #	echo acr-pwd: $(ACR_PASSWORD)	
 ACR_PASSWORD="51vMHmbfIHkcKMfbiUaBq71vSG1wsIm5oVqChA9omieV2ouITxGZJQQJ99CCACPV0roEqg7NAAACAZCRVZN7"
-deploy:
+deploy: create_env
 	az containerapp create \
 	  --name meine-container-app \
 	  --resource-group meine-app-gruppe \
@@ -58,4 +58,7 @@ get_url:
 	  --name meine-container-app \
 	  --resource-group meine-app-gruppe \
 	  --query "properties.configuration.ingress.fqdn" -o tsv
+clean_up:
+	az containerapp delete --name meine-container-app --resource-group meine-app-gruppe
+	az containerapp env delete --name meine-app-env --resource-group meine-app-gruppe
 # EoF

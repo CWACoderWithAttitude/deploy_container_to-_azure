@@ -1,8 +1,29 @@
 = Simple App nach Azure deployen
 
-https://claude.ai/share/feee6438-761c-48c2-9699-c44c9154d256[Claude Chat]
+== TL;DR
+In diesem Beispiel wird ein containerisierte Web-Applikation auf Azure bereitgestellt.
 
+== Worum geht es hier?
+Die App ist eine maximal einfache Web-Applikation mit einem GET Endpoint.
 
+Die App hier ist mit NodeJS geschrieben.
+Da die App in einem Container bereitgestellt werden soll, ist die Programmiersprache aber eigentlich egal. Es könnte auch eine Python App sein, oder eine Java App - das Prinzip ist das gleiche.
 
+== Warum?
+Mir ging es nur darum das Prinzip zu verstehen und schnell eine App nach Azure zu bringen.
 
-EoF
+Jetzt kann ich das hier "gelernte" auf andere Applikationen anwenden.
+
+Das Wort "gelernt" steht mit voller Absicht in Gänsefüßchen. https://claude.ai/share/feee6438-761c-48c2-9699-c44c9154d256[Claude Chat hat die ganze Arbeit gemacht] gemacht. 
+
+Ich habe nur die Anweisungen gegeben und die Ergebnisse in einem Makefile zusammengefasst.
+
+Wie immer gilt: Es gibt viele Wege nach Rom. Es gibt auch viele Wege um eine App auf Azure zu deployen. Das hier ist nur ein Beispiel.
+
+== Fehlerkultur
+KIs machen viel Murks. Aber nicht immer nur auf "die KI" schimpfen. Wenn ihr Fehler findet, sind das meine. 
+
+Alles, was von Claude kam, habe ich ausprobiert und dann wohl hier falsch wiedergegeben. Also: Fehler sind meine, nicht die von Claude ;-)
+
+Ich freue mich aber über jeden PR.
+
